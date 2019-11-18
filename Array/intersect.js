@@ -25,6 +25,27 @@ What if elements of nums2 are stored on disk, and the memory is limited such tha
  */
 var intersect = function(nums1, nums2) {
     
+    const map = new Map();
+    
+    for (const n of nums1){
+        if(map.has(n)){
+            map.set(n, map.get(n) + 1);
+        }
+        else{
+            map.set(n,1);
+        }
+    }
+    
+    const intersect = [];
+    for(const n of nums2){
+        if(map.has(n) && map.get(n) > 0){
+            intersect.push(n);
+            map.set(n, map.get(n) - 1);
+        }
+    }
+
+    return intersect;
+    
 };
 
 /**********TESTING ************/
