@@ -57,10 +57,11 @@ function isBalanced(treeRoot) {
     const nodes = [];
     nodes.push([treeRoot, 0]);
   
+    //this is using depth search
     while (nodes.length) {
   
       // Pop a node and its depth from the top of our stack
-      const nodePair = nodes.pop();
+      const nodePair = nodes.pop();         //moving down the right side of tree... eventually to the left side of the tree
       const node = nodePair[0];
       const depth = nodePair[1];
   
@@ -95,22 +96,6 @@ function isBalanced(treeRoot) {
   
     return true;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Tests
